@@ -37,7 +37,7 @@ public class Library {
         System.out.println(" 3. Add a Review to a Book");
         System.out.println(" 4. Search Book by ID");
         System.out.println(" 5. Search Books by Title");
-        System.out.println(" 6. View All Reviews");
+        System.out.println(" 6. Recent Activity");
         System.out.println(" 7. View Reviews of a Book");
         System.out.println(" 8. View Recently Viewed Books");
         System.out.println(" 9. Delete a Book");
