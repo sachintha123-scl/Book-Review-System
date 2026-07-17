@@ -17,7 +17,7 @@ public class MyStack<T> {
     }
 
     public T pop() {
-        if (isEmpty()) throw new IllegalStateException("Stack is empty — no navigation history yet.");
+        if (isEmpty()) throw new IllegalStateException("No navigation history yet.");
         T data = top.data;
         top = top.next;
         size--;

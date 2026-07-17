@@ -14,14 +14,15 @@ public class Library {
             printMenu();
             int choice = readInt("Choose an option: ");
             switch (choice) {
-                case 1:  addBook(); break;
-                case 2:  addReview(); break;
-                case 3:  searchById(); break;
-                case 4:  searchByTitle(); break;
-                case 5:  displayAllBooks(); break;
+                case 1:  displayAllBooks(); break;
+                case 2:  addBook(); break;
+                case 3:  addReview(); break;
+                case 4:  searchById(); break;
+                case 5:  searchByTitle(); break;
                 case 6:  showRecentActivity(); break;
-                case 7:  showRecentlyViewed(); break;
-                case 8:  deleteBook(); break;
+                case 7:  viewBookReviews(); break;
+                case 8:  showRecentlyViewed(); break;
+                case 9:  deleteBook(); break;
                 case 0:  running = false; System.out.println("\nGoodbye — happy reading!"); break;
                 default: System.out.println("Invalid option. Please choose a number from the menu.");
             }
@@ -31,14 +32,15 @@ public class Library {
 
     private void printMenu() {
         System.out.println("\n===================== BOOK REVIEW & RECOMMENDATION SYSTEM =====================");
-        System.out.println(" 1. Add a Book");
-        System.out.println(" 2. Add a Review to a Book");
-        System.out.println(" 3. Search Book by ID");
-        System.out.println(" 4. Search Books by Title");
-        System.out.println(" 5. Display All Books");
-        System.out.println(" 6. View Recent Reviews");
-        System.out.println(" 7. View Recently Viewed Books");
-        System.out.println(" 8. Delete a Book");
+        System.out.println(" 1. Display All Books");
+        System.out.println(" 2. Add a Book");
+        System.out.println(" 3. Add a Review to a Book");
+        System.out.println(" 4. Search Book by ID");
+        System.out.println(" 5. Search Books by Title");
+        System.out.println(" 6. View All Reviews");
+        System.out.println(" 7. View Reviews of a Book");
+        System.out.println(" 8. View Recently Viewed Books");
+        System.out.println(" 9. Delete a Book");
         System.out.println(" 0. Exit");
         System.out.println("=================================================================================");
     }
@@ -79,6 +81,24 @@ public class Library {
         System.out.println("Review added to \"" + book.getTitle() + "\".");
     }
 
+    private void viewBookReviews() {
+        System.out.println("\n-- View Book Reviews --");
+        int id = readInt("Enter Book ID: ");
+        Book book = catalog.search(id);
+        if (book == null) { System.out.println("No book found with ID " + id + "."); return; }
+
+        MyLinkedList<Review> reviews = book.getReviews();
+        if (reviews.isEmpty()) {
+            System.out.println("No reviews yet for \"" + book.getTitle() + "\".");
+        } else {
+            System.out.println("Reviews for \"" + book.getTitle() + "\":");
+            for (Review r : reviews) {
+                System.out.println("  " + r);
+            }
+        }
+        recentlyViewed.push(book);
+    }
+
     private void searchById() {
         int id = readInt("\nEnter Book ID to search: ");
         Book book = catalog.search(id);
@@ -101,7 +121,7 @@ public class Library {
 
     private void displayAllBooks() {
         MyLinkedList<Book> all = catalog.inorder();
-        if (all.isEmpty()) { System.out.println("\nCatalog is empty. Add a book first (option 1)."); return; }
+        if (all.isEmpty()) { System.out.println("\nCatalog is empty. Add a book first (option 2)."); return; }
         System.out.println("\n-- All Books (sorted by ID via BST in-order traversal) --");
         for (Book b : all) System.out.println("  " + b);
     }
@@ -117,7 +137,7 @@ public class Library {
         if (recentlyViewed.isEmpty()) { System.out.println("  No navigation history yet."); return; }
         for (Book b : recentlyViewed.toList()) System.out.println("  " + b.getId() + ": " + b.getTitle());
 
-        String ans = readLine("Pop the most recently viewed book off the stack? (y/n): ");
+        String ans = readLine("Delete the most recently viewed book? (y/n): ");
         if (ans.equalsIgnoreCase("y")) {
             try {
                 Book popped = recentlyViewed.pop();
@@ -146,7 +166,7 @@ public class Library {
             catalog.insert(b);
             nextId++;
         }
-        System.out.println("Sample catalog loaded (4 books, IDs 1-4). Choose option 5 to view them.");
+        System.out.println("Sample catalog loaded (4 books, IDs 1-4). Choose option 1 to view them.");
     }
 
     private int readInt(String prompt) {
