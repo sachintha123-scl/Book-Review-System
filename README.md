@@ -26,15 +26,15 @@ A console-based Java application for cataloging books, collecting reviews, and b
 
 **Main menu & catalog view**
 
-<img width="500" height="528" alt="01-main-menu" src="https://github.com/user-attachments/assets/53e089f0-7987-40b4-8f19-320fd5a1f36f"/>
+<img width="900" height="350" alt="01-main-menu" src="https://github.com/user-attachments/assets/53e089f0-7987-40b4-8f19-320fd5a1f36f"/>
 
 **Adding a review and searching by title**
 
-<img width="500" height="506" alt="02-add-review" src="https://github.com/user-attachments/assets/de943035-de44-435e-8de3-691e12ec48a8" />
+<img width="900" height="350" alt="02-add-review" src="https://github.com/user-attachments/assets/de943035-de44-435e-8de3-691e12ec48a8" />
 
 **Recent activity feed & recently viewed history**
 
-<img width="500" height="374" alt="03-activity-history" src="https://github.com/user-attachments/assets/e9fac654-2fa4-42ed-8083-a8e4003cc306" />
+<img width="900" height="350" alt="03-activity-history" src="https://github.com/user-attachments/assets/e9fac654-2fa4-42ed-8083-a8e4003cc306" />
 
 ---
 
