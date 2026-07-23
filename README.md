@@ -1,3 +1,4 @@
+![Uploading 03-activity-history.png…]()
 # Book Review & Recommendation System
 
 A console-based Java application for cataloging books, collecting reviews, and browsing a library — built entirely on **custom, hand-rolled data structures** (no `java.util.List`, `Stack`, `Queue`, or `TreeMap` shortcuts). It's a demonstration of core CS fundamentals: binary search trees, linked lists, stacks, and queues, all wired together into a working, menu-driven app.
@@ -25,7 +26,7 @@ A console-based Java application for cataloging books, collecting reviews, and b
 
 **Main menu & catalog view**
 
-![Main menu and book catalog](assets/01-main-menu.png)
+![Main menu and book catalog](<img width="900" height="528" alt="01-main-menu" src="https://github.com/user-attachments/assets/65885632-410d-445b-92a3-2788dc90e933" />)
 
 **Adding a review and searching by title**
 
